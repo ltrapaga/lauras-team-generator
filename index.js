@@ -134,7 +134,31 @@ const employeePrompt = () => {
   );
 };
 
+
+
+// function writeHtml(fileName, data) {
+//   /* fs.writeFile() method is used to asynchronously write the specified data to a file in the file system of this project.
+//      A previously written file will be replaced each time the writeReadme function is called */
+//   fs.writeFile(fileName, data, function (err) {
+//     console.log(data),
+//       /* Ternerary statement that says: if the function fails to execute, then console.log(err);
+//          else, print "README.md has been generated!" to the console */
+//       err ? console.log(err) : console.log("HTML file has been generated!");
+//   });
+// }
+
+// function init() {
+//   inquirer.prompt(questions).then(function (data) {
+//     // Calls writeReadme function to create the file name "README.md" and retrieve generateMarkdown padding data
+//     writeHtml("index.html", teamGenerator(data));
+//   });
+// }
+
+
+
 // Calls managerPrompt function
 managerPrompt();
 // Calls employeePrompt function
 employeePrompt();
+
+//init();
