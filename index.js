@@ -15,7 +15,9 @@ const team = [];
 // managerPrompt function
 const managerPrompt = () => {
   // Imports inquirer
-  return (inquirer.prompt([
+  return (
+    inquirer
+      .prompt([
         // Prompts the user to input the manager's name
         {
           type: "input",
@@ -57,7 +59,9 @@ const managerPrompt = () => {
 // employeePrompt function
 const employeePrompt = () => {
   // Imports inquirer
-  return (inquirer.prompt([
+  return (
+    inquirer
+      .prompt([
         // Prompts the user to choose the employee role type
         {
           type: "list",
@@ -135,8 +139,6 @@ const employeePrompt = () => {
   );
 };
 
-
-
 // function writeHtml(fileName, data) {
 //   /* fs.writeFile() method is used to asynchronously write the specified data to a file in the file system of this project.
 //      A previously written file will be replaced each time the writeReadme function is called */
@@ -148,27 +150,27 @@ const employeePrompt = () => {
 //   });
 
 // Write to HTML
-const writeFile = data => {
-  fs.writeFile('./dist/index.html', data, err => {
-      console.log(data),
-          err ? console.log(err) : console.log("HTML with team data successfully created.")
-  })
+const writeFile = (data) => {
+  fs.writeFile("./dist/index.html", data, (err) => {
+    console.log(data),
+      err
+        ? console.log(err)
+        : console.log("HTML with team data successfully created.");
+  });
 };
 
 // Add input to as needed
 managerPrompt()
-  .then(employeePrompt).then(team => {
-      return teamGenerator(team);
+  .then(employeePrompt)
+  .then((team) => {
+    return teamGenerator(team);
   })
-  .then(fileHTML => {
-      return writeFile(fileHTML);
+  .then((fileHTML) => {
+    return writeFile(fileHTML);
   })
-  .catch(err => {
-      console.log(err);
+  .catch((err) => {
+    console.log(err);
   });
-
-
-
 
 // Calls managerPrompt function
 //managerPrompt();
