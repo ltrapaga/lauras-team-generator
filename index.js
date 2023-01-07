@@ -2,6 +2,9 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
+// Function import for HTML creation
+const teamGenerator = require("./src/teamGenerator");
+
 // Imports Manager, Engineer, and Intern objects
 const Manager = require("./lib/manager.js");
 const Engineer = require("./lib/engineer.js");
@@ -12,9 +15,7 @@ const team = [];
 // managerPrompt function
 const managerPrompt = () => {
   // Imports inquirer
-  return (
-    inquirer
-      .prompt([
+  return (inquirer.prompt([
         // Prompts the user to input the manager's name
         {
           type: "input",
@@ -48,7 +49,7 @@ const managerPrompt = () => {
         // Pushes the new manager object to the team array
         team.push(manager);
         // Prints the new team array containing the updated manager data to the console
-        console.log(team);
+        console.log(manager);
       })
   );
 };
@@ -56,9 +57,7 @@ const managerPrompt = () => {
 // employeePrompt function
 const employeePrompt = () => {
   // Imports inquirer
-  return (
-    inquirer
-      .prompt([
+  return (inquirer.prompt([
         // Prompts the user to choose the employee role type
         {
           type: "list",
@@ -115,10 +114,12 @@ const employeePrompt = () => {
         // If the employee role type = Engineer, then this will create a new object with the values input by the user = employee
         if (roleType === "Engineer") {
           employee = new Engineer(name, id, email, github);
+          console.log(employee);
         }
         // If the employee role type = Intern, then this will create a new object with the values input by the user = employee
         else if (roleType === "Intern") {
           employee = new Intern(name, id, email, school);
+          console.log(employee);
         }
         // Pushes the new employee object to the team array
         team.push(employee);
@@ -145,20 +146,31 @@ const employeePrompt = () => {
 //          else, print "README.md has been generated!" to the console */
 //       err ? console.log(err) : console.log("HTML file has been generated!");
 //   });
-// }
 
-// function init() {
-//   inquirer.prompt(questions).then(function (data) {
-//     // Calls writeReadme function to create the file name "README.md" and retrieve generateMarkdown padding data
-//     writeHtml("index.html", teamGenerator(data));
-//   });
-// }
+// Write to HTML
+const writeFile = data => {
+  fs.writeFile('./dist/index.html', data, err => {
+      console.log(data),
+          err ? console.log(err) : console.log("HTML with team data successfully created.")
+  })
+};
+
+// Add input to as needed
+managerPrompt()
+  .then(employeePrompt).then(team => {
+      return teamGenerator(team);
+  })
+  .then(fileHTML => {
+      return writeFile(fileHTML);
+  })
+  .catch(err => {
+      console.log(err);
+  });
+
 
 
 
 // Calls managerPrompt function
-managerPrompt();
+//managerPrompt();
 // Calls employeePrompt function
-employeePrompt();
-
-//init();
+//employeePrompt();
