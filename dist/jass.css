@@ -4,18 +4,33 @@
 }
 
 header {
+    height: 125px;
     text-align: center;
     background: linear-gradient(135deg, #8FBC8F 20%, #5F9EA0 80%);
-    height: 15vh;
 }
 
 header #navbar-text {
     padding-top: 25px;
     font-weight: bold;
-    font-size: xx-large;
+    font-size: 35px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card-header {
+    background-color: #E0FFFF ;
 }
 
 .col-4 {
     box-shadow: 0px 23px 7px -20px rgba(0, 0, 0, 0.79);
 }
+
+a {
+    text-decoration: none;
+    color:black
+}
+
+a:hover {
+    text-decoration: none;
+    color: #008B8B
+}
+

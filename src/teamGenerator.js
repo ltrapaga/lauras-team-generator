@@ -1,7 +1,6 @@
 // Imports node modules
 const fs = require("fs");
 
-// Template literal for manager section
 const managersCard = function(manager) {
     return `
     <div class="col-4 mt-4">
@@ -19,7 +18,6 @@ const managersCard = function(manager) {
     </div>`
 };
 
-// Template literal for engineer section
 const engineersCard = function(engineer) {
     return `
     <div class="col-4 mt-4">
@@ -37,7 +35,6 @@ const engineersCard = function(engineer) {
     </div>`
 };
 
-// Template literal for intern section
 const internsCard = function(intern) {
     return `
     <div class="col-4 mt-4">
@@ -48,7 +45,7 @@ const internsCard = function(intern) {
             </div>
             <div class="card-body">
                 <p class="id">ID: ${intern.id}</p>
-                <p class="email">Email:<a href="mailto:${intern.email}">${intern.email}</a></p>
+                <p class="email">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
                 <p class="school">School: ${intern.school}</p>
             </div>
     </div>
@@ -78,7 +75,6 @@ const teamGeneratorHTML = function(data) {
     return generateTeam;
 };
 
-// Template literal for HTML boiler plate and links/scripts
 const generateTeamPage = function(employeeCards) {
     return `<!DOCTYPE html>
   <html lang="en">
