@@ -3,7 +3,7 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 
 // Function import for HTML creation
-const teamGenerator = require("./src/teamGenerator");
+const teamGeneratorHTML = require("./src/teamGenerator");
 
 // Imports Manager, Engineer, and Intern objects
 const Manager = require("./lib/manager.js");
@@ -139,16 +139,6 @@ const employeePrompt = () => {
   );
 };
 
-// function writeHtml(fileName, data) {
-//   /* fs.writeFile() method is used to asynchronously write the specified data to a file in the file system of this project.
-//      A previously written file will be replaced each time the writeReadme function is called */
-//   fs.writeFile(fileName, data, function (err) {
-//     console.log(data),
-//       /* Ternerary statement that says: if the function fails to execute, then console.log(err);
-//          else, print "README.md has been generated!" to the console */
-//       err ? console.log(err) : console.log("HTML file has been generated!");
-//   });
-
 // Write to HTML
 const writeFile = (data) => {
   fs.writeFile("./dist/index.html", data, (err) => {
@@ -163,7 +153,7 @@ const writeFile = (data) => {
 managerPrompt()
   .then(employeePrompt)
   .then((team) => {
-    return teamGenerator(team);
+    return teamGeneratorHTML(team);
   })
   .then((fileHTML) => {
     return writeFile(fileHTML);
