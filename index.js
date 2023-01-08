@@ -161,8 +161,3 @@ managerPrompt()
   .catch((err) => {
     console.log(err);
   });
-
-// Calls managerPrompt function
-//managerPrompt();
-// Calls employeePrompt function
-//employeePrompt();
