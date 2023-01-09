@@ -13,8 +13,6 @@
   ## Usage
   To use this application, Git clone this repository, run "npm i", and then run "node index".
   Please visit https://drive.google.com/file/d/1Dhx1IVJauuNFaQllQVCOg6kKrNwQc8FO/view to view a video of the typical user flow through the application.
-  * The first flow in the video shows how to create a README.md with a license.
-  * The second flow in the video shows how to create a README.md without a license.
   ## Contributions
   Contributors: Laura Trapaga
   ## Tests
