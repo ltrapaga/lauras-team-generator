@@ -1,7 +1,6 @@
 // Imports node modules
 const fs = require("fs");
 
-// 
 const teamGeneratorHTML = function(data) {
     htmlArray = [];
     for (let i = 0; i < data.length; i++) {
