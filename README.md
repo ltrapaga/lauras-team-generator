@@ -12,7 +12,10 @@
   Inquirer.
   ## Usage
   To use this application, Git clone this repository, run "npm i", and then run "node index".
-  Please visit https://drive.google.com/file/d/1Dhx1IVJauuNFaQllQVCOg6kKrNwQc8FO/view to view a video of the typical user flow through the application.
+  Please visit https://drive.google.com/file/d/1-SY5WFPwjtgJpCZ2ZxxSxOyGuc06wKqt/view to view a video of the typical user flow through the application.
+  
+  <img width="1347" alt="image" src="https://user-images.githubusercontent.com/115514660/211227670-9ed0cb0b-211e-4611-be62-795731ffc87f.png">
+  
   ## Contributions
   Contributors: Laura Trapaga
   ## Tests
