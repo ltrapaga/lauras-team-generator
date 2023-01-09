@@ -14,7 +14,7 @@ const team = [];
 
 // managerPrompt function
 const managerPrompt = () => {
-  // Imports inquirer
+  // Initializes inquirer
   return (
     inquirer
       .prompt([
@@ -58,7 +58,7 @@ const managerPrompt = () => {
 
 // employeePrompt function
 const employeePrompt = () => {
-  // Imports inquirer
+  // Initializes inquirer
   return (
     inquirer
       .prompt([
@@ -139,25 +139,29 @@ const employeePrompt = () => {
   );
 };
 
-// Write to HTML
-const writeFile = (data) => {
+// writeReadme function will use the data input by the user to write an index.html file when it is called
+const writeHTMLFile = (data) => {
   fs.writeFile("./dist/index.html", data, (err) => {
     console.log(data),
-      err
-        ? console.log(err)
-        : console.log("HTML with team data successfully created.");
+    /* Ternerary statement that says: if the function fails to execute, then console.log(err);
+       else, print "HTML with team data successfully created" */
+      err ? console.log(err) : console.log("HTML with team data successfully created.");
   });
 };
 
-// Add input to as needed
+// Calls managerPrompt function for user to input manager information
 managerPrompt()
+  // Calls employeePrompt function for user to choose an employee type (Engineer/Intern) and then input the appropriate information
   .then(employeePrompt)
+  // Calls teamGeneratorHTML function to use new team array for employee cards
   .then((team) => {
     return teamGeneratorHTML(team);
   })
+  // Calls writeHTMLFile function to create index.html
   .then((fileHTML) => {
-    return writeFile(fileHTML);
+    return writeHTMLFile(fileHTML);
   })
+  // If there is an error, prints error to the console
   .catch((err) => {
     console.log(err);
   });
